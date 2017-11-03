@@ -3,26 +3,39 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Compliment;
 
 class ComplimentsController extends Controller
 {
     public function received() {
-        return view('compliments.received');
+
+        $loggedin_id = 1;
+
+        $posts = Compliment::All()->where('user_id', $loggedin_id);
+
+        return view('compliments.received', compact('posts'));
     }
 
     public function given() {
-        return view('compliments.given');
+
+        $loggedin_id = 1;
+
+        $posts = Compliment::All()->where('id_from', $loggedin_id);
+
+        return view('compliments.given', compact('posts'));
     }
 
     public function index() {
 
         $posts = Compliment::latest()->get();
 
-        $user = new User;
+        //$loggedinuser = Auth::user();
 
-        return view('home.index', compact('posts', 'id_from'));
+        //dd($loggedinuser);
+
+        return view('home.index', compact('posts'));
     }
 
     /**
@@ -58,11 +71,6 @@ class ComplimentsController extends Controller
 
         $user->addCompliment(request('body'));
 
-        /*Compliment::create([
-            'body' => request('body'),
-            'id_from' => 3,
-            'user_id' => $user->id
-        ]);*/
 
         return redirect('/users/' . $user->id );
 

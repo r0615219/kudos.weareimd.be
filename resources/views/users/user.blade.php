@@ -5,8 +5,8 @@
     <div class="jumbotron">
 
         <div class="profileHead">
-            <img class="card-img-top" src="{{ $user->avatar }}" alt="{{ $user->name }} {{ $user->lastname }}">
-            <h1>{{ $user->name }} {{ $user->lastname }}</h1>
+            <img class="card-img-top" src="{{ $user->avatar }}" alt="{{ $user->name }}">
+            <h1>{{ $user->name }}</h1>
         </div>
 
         <hr/>

@@ -33,12 +33,6 @@ class User extends Authenticatable
 
     public function addCompliment($body) {
 
-        $this->compliment()->create(['body' => $body, 'id_from' => 3]);
-
-        /*Compliment::create([
-            'body' => $body,
-            'id_from' => 3,
-            'user_id' => $this->id
-        ]);*/
+        $this->compliment()->create(['body' => $body, 'id_from' => 1]);
     }
 }

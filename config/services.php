@@ -36,8 +36,8 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => '15474688807627',
-        'client_secret' => '28a0f7661f8720db90084de516ae1c18',
+        'client_id' => '785119941678438',
+        'client_secret' => 'bb6a3fa0786867fad2c21e2443133bdc',
         'redirect' => 'http://kudos.weareimd.app/login/callback',
     ],
 

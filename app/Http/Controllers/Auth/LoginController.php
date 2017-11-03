@@ -56,15 +56,22 @@ class LoginController extends Controller
         // when facebook call us a with token
         $providerUser = \Socialite::driver('facebook')->user();
 
-        $user = new User();
-        $user->name = $providerUser->name;
-        $user->avatar = $providerUser->avatar;
-        $user->avatar_original = $providerUser->avatar_original;
-        $user->gender = $providerUser->user['gender'];
-        $user->email = $providerUser->email;
-        $user->password = 'true';
-        $user->token = $providerUser->token;
-        return redirect('/home');
+        $user = User::All()->where('email', $providerUser->email);
+
+        if($user == null){
+            $newUser = new User;
+            $newUser->name = $providerUser->name;
+            $newUser->avatar = $providerUser->avatar;
+            $newUser->avatar_original = $providerUser->avatar_original;
+            $newUser->gender = $providerUser->user['gender'];
+            $newUser->email = $providerUser->email;
+            $newUser->password = 'true';
+            $newUser->token = $providerUser->token;
+            $newUser->save();
+            return redirect('/home');
+        } else {
+            return redirect('/home');
+        }
 
     }
 

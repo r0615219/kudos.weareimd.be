@@ -20,8 +20,8 @@ class HomeTest extends DuskTestCase
 
             $browser->logInAs($user)
                 ->visit('/home')
-                ->assertSee('Compliments')
-                ->assertSee('Users');
+                ->assertSee('Received')
+                ->assertSee('Given');
         });
     }
 }
