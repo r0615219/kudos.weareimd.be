@@ -23,11 +23,11 @@ class ComplimentsTest extends DuskTestCase
             $browser->logInAs($user)
                 ->visit('/users/1')
                 ->type('body', "La la laa x $random")
-                ->press('Submit')
+                ->press('submit')
                 ->assertPathIs('/users/1')
-                ->assertSee('La la laa x $random')
-                ->visit('/received')
-                ->assertSee('La la laa x $random');
+                ->assertSee("La la laa x $random")
+                ->visit('/compliments/received')
+                ->assertSee("La la laa x $random");
         });
     }
 }

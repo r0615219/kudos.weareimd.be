@@ -22,7 +22,7 @@
                 <small id="complimentHelp" class="form-text text-muted">Be the reason for someones smile!</small>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
             </div>
 
             @include('layouts.errors')
